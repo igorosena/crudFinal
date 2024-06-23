@@ -1,0 +1,20 @@
+{
+  "name": "trabalhobussola",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@nestjs/cli": "^10.3.2",
+    "@shazow/whatsabi": "^0.12.0",
+    "alchemy-sdk": "^3.3.1",
+    "axios": "^1.7.2",
+    "crypto": "^1.0.1",
+    "web3": "^4.10.0"
+  }
+}
