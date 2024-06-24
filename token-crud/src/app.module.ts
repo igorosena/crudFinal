@@ -5,12 +5,13 @@ import { UserModule } from './user/user.module';
 import { LogModule } from './log/log.module';
 import { LogService } from './log/log.service';
 import { loggerMiddleware } from './logger/logger.middleware';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'postgres',
       port: 5432,
       username: 'trabalhologin',
       password: 'trabalhoSenha',
@@ -21,6 +22,7 @@ import { loggerMiddleware } from './logger/logger.middleware';
     TokenModule,
     UserModule,
     LogModule,
+    AuthModule,
   ],
 })
 export class AppModule implements NestModule {

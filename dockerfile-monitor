@@ -1,0 +1,10 @@
+FROM node:20.12.0
+
+WORKDIR /app
+
+COPY monitor.js ./
+COPY package*.json ./
+
+RUN npm install
+
+CMD [ "node", "monitor.js" ] 

@@ -331,7 +331,7 @@ const main = async () => {
                 };
 
                 // Enviar dados para a API
-                await axios.post('http://localhost:3000/tokens', tokenData);
+                await axios.post('http://app:6001/tokens', tokenData);
 
                 fs.appendFile('armazenamentoTokens.ndjson', JSON.stringify(tokenData) + '\n', (err) => {
                     if (err) throw err;

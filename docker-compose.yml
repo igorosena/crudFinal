@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: erc20tokensdb   # Alterado para 'erc20tokensdb'
+      POSTGRES_USER: trabalhologin  # Alterado para 'trabalhologin'
+      POSTGRES_PASSWORD: trabalhoSenha  # Alterado para 'trabalhoSenha'
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+  
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile-app
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://trabalhologin:trabalhoSenha@postgres:5432/erc20tokensdb  # Ajuste de acordo com as novas configurações
+    ports:
+      - "6001:6001" 
+    networks:
+      - default
+  monitor: 
+    build: 
+      context: .
+      dockerfile: dockerfile-monitor
+    ports:
+      - "5000:5000"
+    networks:
+      - default
+    depends_on:
+      - app
+
+networks:
+  default:
+    driver: bridge
